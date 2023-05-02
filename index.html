@@ -5,56 +5,85 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <link rel="stylesheet" href="/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jumplinks Navigation</title>
 </head>
 
-<body>
-  <section>
-    <h2>Section Above Jumplinks</h2>
+<body class="space-y-12">
+  <section class="min-h-[800px] / bg-gray-100">
+    <div class="container mx-auto / px-6 py-12">
+      <h2 class="text-3xl tracking-tight text-gray-800">Section Above Jumplinks</h2>
+    </div>
   </section>
 
-  <main>
-    <header>
-      <h3>Section #</h3><button role="button" aria-expanded="false">Show</button>
-      <nav aria-label="Jump Links Navigation">
-        <ul>
-          <li><a href="#section--one">Section One</a></li>
-          <li><a href="#section--two">Section Two</a></li>
-          <li><a href="#section--three">Section Three</a></li>
-          <li><a href="#section--four">Section Four</a></li>
-          <li><a href="#section--five">Section Five</a></li>
-          <li><a href="#section--six">Section Six</a></li>
-          <li><a href="#section--seven">Section Seven</a></li>
+  <main class="space-y-12">
+    <header class="sticky top-0 / bg-gray-950">
+      <div class="container / flex justify-between / mx-auto px-6 py-6 / text-2xl text-gray-50">
+        <h3>Section #</h3><button role="button" aria-expanded="false">Show</button>
+      </div>
+      <nav class="container mx-auto / hidden- / mx-auto px-6 pb-6 / text-xl text-gray-400" aria-label="Jump Links Navigation">
+        <ul class="grid grid-cols-3">
+          <li class="py-4"><a href="#jlsection--one" class="hover:text-emerald-400">Section One</a></li>
+          <li class="py-4"><a href="#jlsection--two" class="hover:text-emerald-400">Section Two</a></li>
+          <li class="py-4"><a href="#jlsection--three" class="hover:text-emerald-400">Section Three</a></li>
+          <li class="py-4"><a href="#jlsection--four" class="hover:text-emerald-400">Section Four</a></li>
+          <li class="py-4"><a href="#jlsection--five" class="hover:text-emerald-400">Section Five</a></li>
+          <li class="py-4"><a href="#jlsection--six" class="hover:text-emerald-400">Section Six</a></li>
+          <li class="py-4"><a href="#jlsection--seven" class="hover:text-emerald-400">Section Seven</a></li>
         </ul>
       </nav>
     </header>
 
-    <section id="section--one">
-      <h2>Section One</h2>
+    <section id="jlsection--one" class="min-h-[800px] / bg-gray-100">
+      <div class="container mx-auto / px-6 py-12">
+        <h2 class="text-3xl tracking-tight text-gray-800">Section One</h2>
+      </div>
     </section>
-    <section id="section--two">
-      <h2>Section Two</h2>
+    <section id="jlsection--two" class="min-h-[800px] / bg-gray-100">
+      <div class="container mx-auto / px-6 py-12">
+        <h2 class="text-3xl tracking-tight text-gray-800">Section Two</h2>
+      </div>
     </section>
-    <section id="section--three">
-      <h2>Section Three</h2>
+    <section id="jlsection--three" class="min-h-[800px] / bg-gray-100">
+      <div class="container mx-auto / px-6 py-12">
+        <h2 class="text-3xl tracking-tight text-gray-800">Section Three</h2>
+      </div>
     </section>
-    <section id="section--four">
-      <h2>Section Four</h2>
+    <section id="jlsection--four" class="min-h-[800px] / bg-gray-100">
+      <div class="container mx-auto / px-6 py-12">
+        <h2 class="text-3xl tracking-tight text-gray-800">Section Four</h2>
+      </div>
     </section>
-    <section id="section--five">
-      <h2>Section Five</h2>
+    <section id="jlsection--five" class="min-h-[800px] / bg-gray-100">
+      <div class="container mx-auto / px-6 py-12">
+        <h2 class="text-3xl tracking-tight text-gray-800">Section Five</h2>
+      </div>
     </section>
-    <section id="section--six">
-      <h2>Section Six</h2>
+    <section id="jlsection--six" class="min-h-[800px] / bg-gray-100">
+      <div class="container mx-auto / px-6 py-12">
+        <h2 class="text-3xl tracking-tight text-gray-800">Section Six</h2>
+      </div>
     </section>
-    <section id="section--seven">
-      <h2>Section Seven</h2>
+    <section id="jlsection--seven" class="min-h-[800px] / bg-gray-100">
+      <div class="container mx-auto / px-6 py-12">
+        <h2 class="text-3xl tracking-tight text-gray-800">Section Seven</h2>
+      </div>
     </section>
   </main>
 
-  <section>
-    <h2>Section After Jumplinks</h2>
+  <section class="min-h-[800px] / bg-gray-100">
+    <div class="container mx-auto / px-6 py-12">
+      <h2 class="text-3xl tracking-tight text-gray-800">Section After Jumplinks</h2>
+    </div>
+  </section>
+
+  <section class="min-h-[800px] / bg-gray-100">
+    <div class="container mx-auto / px-6 py-12">
+      <h2 class="text-3xl tracking-tight text-gray-800">Section After Jumplinks 2</h2>
+    </div>
   </section>
 
   <script type="module" src="/main.js"></script>
