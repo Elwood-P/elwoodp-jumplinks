@@ -1,3 +1,5 @@
+import throttle from 'underscore/modules/throttle.js';
+
 const jlWrapper = document.querySelector('main');
 const jlMenuBtn = document.getElementById('jl-btn');
 const jlMenu = document.getElementById('jl-menu');
@@ -49,9 +51,9 @@ const init = () => {
   addMenuLinkListeners();
 
   jlCurrentSection.textContent = jlSections[0].querySelector('h2').textContent; // Set starting state
-  window.addEventListener('scroll', updateJLCurrentSection);
+  window.addEventListener('scroll', throttle(updateJLCurrentSection, 100));
 
-  window.addEventListener('scroll', updateJlProgressBar);
+  window.addEventListener('scroll', throttle(updateJlProgressBar, 25));
 };
 
 export default init;
