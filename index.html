@@ -22,9 +22,9 @@
   <main class="space-y-12">
     <header class="sticky top-0 / bg-gray-950">
       <div class="container / flex justify-between / mx-auto px-6 py-6 / text-2xl text-gray-50">
-        <h3>Section #</h3><button role="button" aria-expanded="false">Show</button>
+        <h3 id="jl-current-section">Section #</h3><button id="jl-btn" role="button" aria-expanded="false" aria-controls="jl-menu" class="hover:text-emerald-400">Show</button>
       </div>
-      <nav class="container mx-auto / hidden- / mx-auto px-6 pb-6 / text-xl text-gray-400" aria-label="Jump Links Navigation">
+      <nav id="jl-menu" aria-label="Jump Links Navigation" class="container mx-auto / hidden / mx-auto px-6 pb-6 / text-xl text-gray-400">
         <ul class="grid grid-cols-3">
           <li class="py-4"><a href="#jlsection--one" class="hover:text-emerald-400">Section One</a></li>
           <li class="py-4"><a href="#jlsection--two" class="hover:text-emerald-400">Section Two</a></li>
@@ -35,6 +35,7 @@
           <li class="py-4"><a href="#jlsection--seven" class="hover:text-emerald-400">Section Seven</a></li>
         </ul>
       </nav>
+      <div id="jl-progress-bar" class="h-1 / bg-emerald-400"></div>
     </header>
 
     <section id="jlsection--one" class="min-h-[800px] / bg-gray-100">
