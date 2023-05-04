@@ -41,8 +41,8 @@ function toggleMenu(e, sectionTargetId) {
   }
 }
 
-// Add click event listeners to menu buttons
-function addMenuButtonListeners() {
+// Add click event listeners to menu section buttons
+function addMenuSectionBtnListeners() {
   menuSectionBtns.forEach((button) => button.addEventListener('click', (e) => toggleMenu(e, button.dataset.href)));
 }
 
@@ -80,7 +80,7 @@ function init() {
   gsap.registerPlugin(ScrollToPlugin);
 
   menuToggleBtn.addEventListener('click', toggleMenu);
-  addMenuButtonListeners();
+  addMenuSectionBtnListeners();
 
   // Throttle limits updates to every 100ms (performance)
   window.addEventListener('scroll', throttle(updateCurrentSection, 100));
