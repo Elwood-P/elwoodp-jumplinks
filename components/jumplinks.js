@@ -2,96 +2,93 @@ import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import throttle from 'underscore/modules/throttle.js';
 
-const jlWrapper = document.querySelector('main');
-const jlHeader = document.getElementById('jl-header');
-const jlMenuBtn = document.getElementById('jl-btn');
-const jlMenu = document.getElementById('jl-menu');
-const jlMenuButtons = document.querySelectorAll('#jl-menu button');
-const jlProgressBar = document.getElementById('jl-progress-bar');
-const jlCurrentSection = document.getElementById('jl-current-section');
-const jlSections = document.querySelectorAll('section[id^="jlsection--"]');
+const wrapper = document.getElementById('jl-wrapper');
+const header = document.getElementById('jl-header');
+const menu = document.getElementById('jl-menu');
+const menuToggleBtn = document.getElementById('jl-btn');
+const menuSectionBtns = document.querySelectorAll('#jl-menu button');
+const progressBar = document.getElementById('jl-progress-bar');
+const currentSection = document.getElementById('jl-current-section');
+const sections = document.querySelectorAll('section[id^="jl-section--"]');
 
-//
-// Menu Toggle
-//
-const toggleJlMenu = (e, sectionTargetId) => {
-  const openMenuAnimation = () => gsap.to(jlMenu, { duration: 0.5, height: 'auto' });
-  const closeMenuAnimation = () => gsap.to(jlMenu, { duration: 0.5, height: 0 });
+// Toggle menu open/close and handle scrolling to target section
+function toggleMenu(e, sectionTargetId) {
+  const openMenuAnimation = () => gsap.to(menu, { duration: 0.5, height: 'auto' });
+  const closeMenuAnimation = () => gsap.to(menu, { duration: 0.5, height: 0 });
   const closeMenuScrolToAnimation = () => {
     const timeLine = gsap.timeline();
     timeLine
-      .to(jlMenu, { duration: 0.5, height: 0 })
-      .to(window, { duration: 1, scrollTo: { y: sectionTargetId, offsetY: jlHeader.getBoundingClientRect().height } });
+      .to(menu, { duration: 0.5, height: 0 })
+      .to(window, { duration: 1, scrollTo: { y: sectionTargetId, offsetY: header.getBoundingClientRect().height } });
   };
 
-  const isMenuOpen = jlMenuBtn.getAttribute('aria-expanded'); // Store state in DOM using aria-expanded
+  // Use aria-expanded to control menu state
+  const isMenuOpen = menuToggleBtn.getAttribute('aria-expanded');
 
   if (isMenuOpen === 'true') {
-    // If called by a menu button then close menu *then* scroll to section
-    if (sectionTargetId) {
-      closeMenuScrolToAnimation();
-    } else {
+    if (!sectionTargetId) {
       closeMenuAnimation();
+    } else {
+      // If called by a menu button (passes sectionTargetId), close menu then scroll to section
+      closeMenuScrolToAnimation();
     }
-    jlMenuBtn.textContent = 'Show';
-    jlMenuBtn.setAttribute('aria-expanded', 'false');
+    menuToggleBtn.textContent = 'Show';
+    menuToggleBtn.setAttribute('aria-expanded', 'false');
   } else {
     openMenuAnimation();
-    jlMenuBtn.textContent = 'Hide';
-    jlMenuBtn.setAttribute('aria-expanded', 'true');
+    menuToggleBtn.textContent = 'Hide';
+    menuToggleBtn.setAttribute('aria-expanded', 'true');
   }
-};
+}
 
-const addMenuLinkListeners = () => {
-  jlMenuButtons.forEach((button) => button.addEventListener('click', (e) => toggleJlMenu(e, button.dataset.href)));
-};
+// Add click event listeners to menu buttons
+function addMenuButtonListeners() {
+  menuSectionBtns.forEach((button) => button.addEventListener('click', (e) => toggleMenu(e, button.dataset.href)));
+}
 
-//
-// Update Current Section Display
-//
-const updateJLCurrentSection = () => {
-  const sectionInView = [...jlSections].findLast((section) => {
+// Update displayed current section based on scroll position
+function updateCurrentSection() {
+  const sectionInView = [...sections].findLast((section) => {
     const topOffset = section.getBoundingClientRect().top;
     const viewPortHeight = document.documentElement.clientHeight;
-
-    return topOffset < viewPortHeight / 2; // Returns the last section to have passed above the halfway point of the viewport
+    // Returns the last section to have passed above the halfway point of the viewport
+    return topOffset < viewPortHeight / 2;
   });
 
   if (sectionInView) {
-    jlCurrentSection.textContent = sectionInView.querySelector('h2').textContent;
+    currentSection.textContent = sectionInView.querySelector('h2').textContent;
   } else {
-    jlCurrentSection.textContent = jlSections[0].querySelector('h2').textContent; // Fallback to first section before Jumplinks is in view
+    // Use first section before Jumplinks arrives in view
+    currentSection.textContent = sections[0].querySelector('h2').textContent;
   }
-};
+}
 
-//
-// Progress Bar Update
-//
-const updateJlProgressBar = () => {
-  const topOffset = jlWrapper.getBoundingClientRect().top;
+// Update progress bar width based on scroll position
+function updateProgressBar() {
+  const topOffset = wrapper.getBoundingClientRect().top;
   const viewPortHeight = document.documentElement.clientHeight;
-  const wrapperHeight = jlWrapper.getBoundingClientRect().height;
+  const wrapperHeight = wrapper.getBoundingClientRect().height;
 
   const progressPercentage = ((viewPortHeight - topOffset) / (wrapperHeight + viewPortHeight)) * 100;
   const boundedProgressPercentage = Math.min(Math.max(progressPercentage, 0), 100);
 
-  jlProgressBar.style.width = boundedProgressPercentage + '%';
-};
+  progressBar.style.width = boundedProgressPercentage + '%';
+}
 
-//
-// Init
-//
-const init = () => {
+// Initialise event listeners and set initial states
+function init() {
   gsap.registerPlugin(ScrollToPlugin);
 
-  jlMenuBtn.addEventListener('click', toggleJlMenu);
-  addMenuLinkListeners();
+  menuToggleBtn.addEventListener('click', toggleMenu);
+  addMenuButtonListeners();
 
-  window.addEventListener('scroll', throttle(updateJLCurrentSection, 100)); // Throttle limits updates to every 100ms (performance)
-  updateJLCurrentSection(); // Set starting state
+  // Throttle limits updates to every 100ms (performance)
+  window.addEventListener('scroll', throttle(updateCurrentSection, 100));
+  updateCurrentSection();
 
-  window.addEventListener('scroll', throttle(updateJlProgressBar, 10)); // More frequent updates since bar should appear smooth
-  updateJlProgressBar(); // Set starting state
-};
+  // More frequent updates for smooth bar animation
+  window.addEventListener('scroll', throttle(updateProgressBar, 10));
+  updateProgressBar();
+}
 
 export default init;
