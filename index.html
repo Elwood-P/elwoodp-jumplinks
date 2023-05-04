@@ -9,21 +9,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jumplinks Navigation</title>
+  <meta name="description" content="Jumplinks smooth scrolling section menu with progress bar.">
+  <title>Jumplinks</title>
 </head>
 
-<body class="space-y-12">
-  <section class="min-h-[800px] / bg-gray-100">
-    <div class="container mx-auto / px-6 py-12">
-      <h2 class="text-3xl tracking-tight text-gray-800">Section Above Jumplinks</h2>
+<body>
+  <header class="grid place-content-center / min-h-[85vh] / bg-hero bg-cover bg-[65%_center]">
+    <div class="container / space-y-10 /  mx-auto px-6 py-64 / text-center">
+      <h1 class="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white">Jumplinks!</h1>
+      <p class="max-w-3xl mx-auto / text-xl leading-relaxed text-gray-300">Quisque efficitur orci nec vehicula bibendum. Morbi a vulputate lectus. Aliquam quis eros elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam laoreet dignissim nunc at condimentum.</p>
     </div>
-  </section>
+  </header>
 
-  <main id="jl-wrapper" class="space-y-12">
-    <header id="jl-header" class="sticky top-0">
+  <!--Jumplinks Start -->
+  <main id="jl-wrapper">
+    <header id="jl-header" class="sticky top-0 / z-50">
       <div class="bg-gray-950 / text-2xl text-gray-50">
         <div class="container / flex justify-between / mx-auto px-6 py-6">
-          <h3 id="jl-current-section"></h3><button id="jl-btn" role="button" aria-expanded="false" aria-controls="jl-menu" class="hover:text-emerald-400">Show</button>
+          <h2 id="jl-current-section"></h2>
+          <button id="jl-btn" role="button" aria-expanded="false" aria-controls="jl-menu" class="hover:text-emerald-400">Show</button>
         </div>
         <div id="jl-progress-bar" class="h-1 w-0 / bg-emerald-400"></div>
       </div>
@@ -40,50 +44,113 @@
       </nav>
     </header>
 
-    <section id="jl-section--one" class="min-h-[800px] / bg-gray-100">
-      <div class="container mx-auto / px-6 py-12">
-        <h2 class="text-3xl tracking-tight text-gray-800">Section One</h2>
+    <section id="jl-section--one" class="border-b-2 border-gray-100">
+      <div class="container / flex flex-col flex-col-reverse lg:grid lg:grid-cols-12 gap-x-7 gap-y-14 / mx-auto px-6 py-48">
+        <div class="col-span-6 / space-y-6">
+          <h2 class="mb-7 / text-5xl font-bold text-gray-700">Section One</h2>
+          <p class="text-2xl text-gray-600">Quisque efficitur orci nec vehicula bibendum. Morbi a vulputate lectus. Aliquam quis eros elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+          <p class="text-lg text-gray-500">In molestie arcu lorem, in volutpat ligula faucibus vel. Cras euismod imperdiet dolor, in ultrices metus pellentesque sed. Donec sodales, neque id sollicitudin faucibus, elit sem varius tellus, a venenatis eros quam sed diam. Nulla a sollicitudin lectus. Proin pretium consequat felis a porta. Integer vel faucibus sapien. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+          <p class="text-lg text-gray-500">Sed eu nisi molestie, malesuada metus et, lobortis purus. Nulla sit amet elementum nisl. In quis posuere nisi, sed vulputate ex. Cras sapien quam, ultrices eget semper et, iaculis non nisi. Nam maximus velit eu pulvinar accumsan. Phasellus lectus ante, cursus sed odio nec, cursus condimentum leo. Sed imperdiet erat sit amet nisi sodales, eget auctor lectus sagittis. Nullam ligula felis, facilisis quis tincidunt quis, tincidunt a mauris.</p>
+        </div>
+        <div class="col-start-8 col-span-5">
+          <img class="rounded / lg:rotate-2" alt="Photo of a contented looking frog" src="https://kimba-imagecdn.imgix.net/elwoodp-jumplinks/section-one__frog.jpg?q=80&auto=format">
+        </div>
       </div>
     </section>
-    <section id="jl-section--two" class="min-h-[800px] / bg-gray-100">
-      <div class="container mx-auto / px-6 py-12">
-        <h2 class="text-3xl tracking-tight text-gray-800">Section Two</h2>
+
+    <section id="jl-section--two" class="border-b-2 border-gray-100">
+      <div class="container / flex flex-col lg:grid lg:grid-cols-12 gap-x-7 gap-y-14 / mx-auto px-6 py-48">
+        <div class="col-span-5">
+          <img class="rounded / lg:-rotate-2" alt="Photo of a slightly surprised looking frog" src="https://kimba-imagecdn.imgix.net/elwoodp-jumplinks/section-two__frog.jpg?q=80&auto=format">
+        </div>
+        <div class="col-start-7 col-span-6 / space-y-6">
+          <h2 class="mb-7 / text-5xl font-bold text-gray-700">Section Two</h2>
+          <p class="text-2xl text-gray-600">Quisque efficitur orci nec vehicula bibendum. Morbi a vulputate lectus. Aliquam quis eros elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+          <p class="text-lg text-gray-500">In molestie arcu lorem, in volutpat ligula faucibus vel. Cras euismod imperdiet dolor, in ultrices metus pellentesque sed. Donec sodales, neque id sollicitudin faucibus, elit sem varius tellus, a venenatis eros quam sed diam. Nulla a sollicitudin lectus. Proin pretium consequat felis a porta. Integer vel faucibus sapien. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+          <p class="text-lg text-gray-500">Sed eu nisi molestie, malesuada metus et, lobortis purus. Nulla sit amet elementum nisl. In quis posuere nisi, sed vulputate ex. Cras sapien quam, ultrices eget semper et, iaculis non nisi. Nam maximus velit eu pulvinar accumsan. Phasellus lectus ante, cursus sed odio nec, cursus condimentum leo. Sed imperdiet erat sit amet nisi sodales, eget auctor lectus sagittis. Nullam ligula felis, facilisis quis tincidunt quis, tincidunt a mauris.</p>
+        </div>
       </div>
     </section>
-    <section id="jl-section--three" class="min-h-[800px] / bg-gray-100">
-      <div class="container mx-auto / px-6 py-12">
-        <h2 class="text-3xl tracking-tight text-gray-800">Section Three</h2>
+
+    <section id="jl-section--three" class="border-b-2 border-gray-100">
+      <div class="container / flex flex-col flex-col-reverse lg:grid lg:grid-cols-12 gap-x-7 gap-y-14 / mx-auto px-6 py-48">
+        <div class="col-span-6 / space-y-6">
+          <h2 class="mb-7 / text-5xl font-bold text-gray-700">Section Three</h2>
+          <p class="text-2xl text-gray-600">Quisque efficitur orci nec vehicula bibendum. Morbi a vulputate lectus. Aliquam quis eros elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+          <p class="text-lg text-gray-500">In molestie arcu lorem, in volutpat ligula faucibus vel. Cras euismod imperdiet dolor, in ultrices metus pellentesque sed. Donec sodales, neque id sollicitudin faucibus, elit sem varius tellus, a venenatis eros quam sed diam. Nulla a sollicitudin lectus. Proin pretium consequat felis a porta. Integer vel faucibus sapien. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+          <p class="text-lg text-gray-500">Sed eu nisi molestie, malesuada metus et, lobortis purus. Nulla sit amet elementum nisl. In quis posuere nisi, sed vulputate ex. Cras sapien quam, ultrices eget semper et, iaculis non nisi. Nam maximus velit eu pulvinar accumsan. Phasellus lectus ante, cursus sed odio nec, cursus condimentum leo. Sed imperdiet erat sit amet nisi sodales, eget auctor lectus sagittis. Nullam ligula felis, facilisis quis tincidunt quis, tincidunt a mauris.</p>
+        </div>
+        <div class="col-start-8 col-span-5">
+          <img class="rounded / lg:rotate-2" alt="Photo of a cheerful looking frog" src="https://kimba-imagecdn.imgix.net/elwoodp-jumplinks/section-three__frog.jpg?q=80&auto=format">
+        </div>
       </div>
     </section>
-    <section id="jl-section--four" class="min-h-[800px] / bg-gray-100">
-      <div class="container mx-auto / px-6 py-12">
-        <h2 class="text-3xl tracking-tight text-gray-800">Section Four</h2>
+
+    <section id="jl-section--four" class="border-b-2 border-gray-100">
+      <div class="container / flex flex-col lg:grid lg:grid-cols-12 gap-x-7 gap-y-14 / mx-auto px-6 py-48">
+        <div class="col-span-5">
+          <img class="rounded / lg:-rotate-2" alt="Photo of a lonely looking frog" src="https://kimba-imagecdn.imgix.net/elwoodp-jumplinks/section-four__frog.jpg?q=80&auto=format">
+        </div>
+        <div class="col-start-7 col-span-6 / space-y-6">
+          <h2 class="mb-7 / text-5xl font-bold text-gray-700">Section Four</h2>
+          <p class="text-2xl text-gray-600">Quisque efficitur orci nec vehicula bibendum. Morbi a vulputate lectus. Aliquam quis eros elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+          <p class="text-lg text-gray-500">In molestie arcu lorem, in volutpat ligula faucibus vel. Cras euismod imperdiet dolor, in ultrices metus pellentesque sed. Donec sodales, neque id sollicitudin faucibus, elit sem varius tellus, a venenatis eros quam sed diam. Nulla a sollicitudin lectus. Proin pretium consequat felis a porta. Integer vel faucibus sapien. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+          <p class="text-lg text-gray-500">Sed eu nisi molestie, malesuada metus et, lobortis purus. Nulla sit amet elementum nisl. In quis posuere nisi, sed vulputate ex. Cras sapien quam, ultrices eget semper et, iaculis non nisi. Nam maximus velit eu pulvinar accumsan. Phasellus lectus ante, cursus sed odio nec, cursus condimentum leo. Sed imperdiet erat sit amet nisi sodales, eget auctor lectus sagittis. Nullam ligula felis, facilisis quis tincidunt quis, tincidunt a mauris.</p>
+        </div>
       </div>
     </section>
-    <section id="jl-section--five" class="min-h-[800px] / bg-gray-100">
-      <div class="container mx-auto / px-6 py-12">
-        <h2 class="text-3xl tracking-tight text-gray-800">Section Five</h2>
+
+    <section id="jl-section--five" class="border-b-2 border-gray-100">
+      <div class="container / flex flex-col flex-col-reverse lg:grid lg:grid-cols-12 gap-x-7 gap-y-14 / mx-auto px-6 py-48">
+        <div class="col-span-6 / space-y-6">
+          <h2 class="mb-7 / text-5xl font-bold text-gray-700">Section Five</h2>
+          <p class="text-2xl text-gray-600">Quisque efficitur orci nec vehicula bibendum. Morbi a vulputate lectus. Aliquam quis eros elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+          <p class="text-lg text-gray-500">In molestie arcu lorem, in volutpat ligula faucibus vel. Cras euismod imperdiet dolor, in ultrices metus pellentesque sed. Donec sodales, neque id sollicitudin faucibus, elit sem varius tellus, a venenatis eros quam sed diam. Nulla a sollicitudin lectus. Proin pretium consequat felis a porta. Integer vel faucibus sapien. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+          <p class="text-lg text-gray-500">Sed eu nisi molestie, malesuada metus et, lobortis purus. Nulla sit amet elementum nisl. In quis posuere nisi, sed vulputate ex. Cras sapien quam, ultrices eget semper et, iaculis non nisi. Nam maximus velit eu pulvinar accumsan. Phasellus lectus ante, cursus sed odio nec, cursus condimentum leo. Sed imperdiet erat sit amet nisi sodales, eget auctor lectus sagittis. Nullam ligula felis, facilisis quis tincidunt quis, tincidunt a mauris.</p>
+        </div>
+        <div class="col-start-8 col-span-5">
+          <img class="rounded / lg:rotate-2" alt="Photo of a thoughtful looking frog" src="https://kimba-imagecdn.imgix.net/elwoodp-jumplinks/section-five__frog-v2.jpg?q=80&auto=format">
+        </div>
       </div>
     </section>
-    <section id="jl-section--six" class="min-h-[800px] / bg-gray-100">
-      <div class="container mx-auto / px-6 py-12">
-        <h2 class="text-3xl tracking-tight text-gray-800">Section Six</h2>
+
+    <section id="jl-section--six" class="border-b-2 border-gray-100">
+      <div class="container / flex flex-col lg:grid lg:grid-cols-12 gap-x-7 gap-y-14 / mx-auto px-6 py-48">
+        <div class="col-span-5">
+          <img class="rounded / lg:-rotate-2" alt="Photo of a bug-eyed looking frog" src="https://kimba-imagecdn.imgix.net/elwoodp-jumplinks/section-six__frog.jpg?q=80&auto=format">
+        </div>
+        <div class="col-start-7 col-span-6 / space-y-6">
+          <h2 class="mb-7 / text-5xl font-bold text-gray-700">Section Six</h2>
+          <p class="text-2xl text-gray-600">Quisque efficitur orci nec vehicula bibendum. Morbi a vulputate lectus. Aliquam quis eros elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+          <p class="text-lg text-gray-500">In molestie arcu lorem, in volutpat ligula faucibus vel. Cras euismod imperdiet dolor, in ultrices metus pellentesque sed. Donec sodales, neque id sollicitudin faucibus, elit sem varius tellus, a venenatis eros quam sed diam. Nulla a sollicitudin lectus. Proin pretium consequat felis a porta. Integer vel faucibus sapien. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+          <p class="text-lg text-gray-500">Sed eu nisi molestie, malesuada metus et, lobortis purus. Nulla sit amet elementum nisl. In quis posuere nisi, sed vulputate ex. Cras sapien quam, ultrices eget semper et, iaculis non nisi. Nam maximus velit eu pulvinar accumsan. Phasellus lectus ante, cursus sed odio nec, cursus condimentum leo. Sed imperdiet erat sit amet nisi sodales, eget auctor lectus sagittis. Nullam ligula felis, facilisis quis tincidunt quis, tincidunt a mauris.</p>
+        </div>
       </div>
     </section>
-    <section id="jl-section--seven" class="min-h-[800px] / bg-gray-100">
-      <div class="container mx-auto / px-6 py-12">
-        <h2 class="text-3xl tracking-tight text-gray-800">Section Seven</h2>
+    
+    <section id="jl-section--seven" class="border-gray-100">
+      <div class="container / flex flex-col flex-col-reverse lg:grid lg:grid-cols-12 gap-x-7 gap-y-14 / mx-auto px-6 py-48">
+        <div class="col-span-6 / space-y-6">
+          <h2 class="mb-7 / text-5xl font-bold text-gray-700">Section Seven</h2>
+          <p class="text-2xl text-gray-600">Quisque efficitur orci nec vehicula bibendum. Morbi a vulputate lectus. Aliquam quis eros elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+          <p class="text-lg text-gray-500">In molestie arcu lorem, in volutpat ligula faucibus vel. Cras euismod imperdiet dolor, in ultrices metus pellentesque sed. Donec sodales, neque id sollicitudin faucibus, elit sem varius tellus, a venenatis eros quam sed diam. Nulla a sollicitudin lectus. Proin pretium consequat felis a porta. Integer vel faucibus sapien. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+          <p class="text-lg text-gray-500">Sed eu nisi molestie, malesuada metus et, lobortis purus. Nulla sit amet elementum nisl. In quis posuere nisi, sed vulputate ex. Cras sapien quam, ultrices eget semper et, iaculis non nisi. Nam maximus velit eu pulvinar accumsan. Phasellus lectus ante, cursus sed odio nec, cursus condimentum leo. Sed imperdiet erat sit amet nisi sodales, eget auctor lectus sagittis. Nullam ligula felis, facilisis quis tincidunt quis, tincidunt a mauris.</p>
+        </div>
+        <div class="col-start-8 col-span-5">
+          <img class="rounded / lg:rotate-2" alt="Photo of a frog hiding" src="https://kimba-imagecdn.imgix.net/elwoodp-jumplinks/section-seven__frog.jpg?q=80&auto=format">
+        </div>
       </div>
     </section>
   </main>
+  <!--Jumplinks End -->
 
-  <section class="min-h-[800px] / bg-gray-100">
+  <section class="min-h-[800px] my-2 / bg-gray-100">
     <div class="container mx-auto / px-6 py-12">
       <h2 class="text-3xl tracking-tight text-gray-800">Section After Jumplinks</h2>
     </div>
   </section>
 
-  <section class="min-h-[800px] / bg-gray-100">
+  <section class="min-h-[800px] my-2 / bg-gray-100">
     <div class="container mx-auto / px-6 py-12">
       <h2 class="text-3xl tracking-tight text-gray-800">Section After Jumplinks 2</h2>
     </div>
