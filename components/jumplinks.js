@@ -6,7 +6,7 @@ const wrapper = document.getElementById('jl-wrapper');
 const header = document.getElementById('jl-header');
 const menu = document.getElementById('jl-menu');
 const menuToggleBtn = document.getElementById('jl-btn');
-const menuSectionBtns = document.querySelectorAll('#jl-menu button');
+const menuSectionLinks = document.querySelectorAll('#jl-menu a');
 const progressBar = document.getElementById('jl-progress-bar');
 const currentSection = document.getElementById('jl-current-section');
 const sections = document.querySelectorAll('section[id^="jl-section--"]');
@@ -41,9 +41,14 @@ function toggleMenu(e, sectionTargetId) {
   }
 }
 
-// Add click event listeners to menu section buttons
-function addMenuSectionBtnListeners() {
-  menuSectionBtns.forEach((button) => button.addEventListener('click', (e) => toggleMenu(e, button.dataset.href)));
+// Add click event listeners to menu section links
+function addMenuSectionLinkListeners() {
+  menuSectionLinks.forEach((link) =>
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      toggleMenu(e, link.getAttribute('href'));
+    })
+  );
 }
 
 // Update displayed current section based on scroll position
@@ -80,7 +85,7 @@ function init() {
   gsap.registerPlugin(ScrollToPlugin);
 
   menuToggleBtn.addEventListener('click', toggleMenu);
-  addMenuSectionBtnListeners();
+  addMenuSectionLinkListeners();
 
   // Throttle limits updates to every 100ms (performance)
   window.addEventListener('scroll', throttle(updateCurrentSection, 100));
